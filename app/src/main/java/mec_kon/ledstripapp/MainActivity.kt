@@ -10,9 +10,9 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import mec_kon.ledstripapp.first_fragment.FirstFragment
-import mec_kon.ledstripapp.first_fragment.SecondFragment
+import mec_kon.ledstripapp.second_fragment.SecondFragment
 import mec_kon.ledstripapp.settings_fragment.SettingsFragment
-import mec_kon.ledstripapp.storage.Storage
+
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
