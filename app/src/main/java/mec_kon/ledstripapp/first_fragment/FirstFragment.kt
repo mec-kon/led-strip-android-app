@@ -33,6 +33,13 @@ class FirstFragment : Fragment() {
 
         val turnOnOffButton = view.findViewById<Button>(R.id.turn_on_off)
 
+        if(!isOn){
+            turnOnOffButton.text = "turn on"
+        }
+        else {
+            turnOnOffButton.text = "turn off"
+        }
+
         colorPicker.addOnColorChangedListener {
             val color = colorPicker.selectedColor
             val red = Color.red(color)

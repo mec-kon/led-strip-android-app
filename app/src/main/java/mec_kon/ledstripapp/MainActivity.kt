@@ -3,12 +3,14 @@ package mec_kon.ledstripapp
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import mec_kon.ledstripapp.first_fragment.FirstFragment
+import mec_kon.ledstripapp.first_fragment.SecondFragment
 import mec_kon.ledstripapp.settings_fragment.SettingsFragment
 import mec_kon.ledstripapp.storage.Storage
 
@@ -23,14 +25,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
 
-        /*
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
-        */
+
 
 
         val manager = fragmentManager
@@ -75,12 +76,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+
+        val manager = fragmentManager
+        val first = FirstFragment()
+        val second = SecondFragment()
+
         when (item.itemId) {
             R.id.nav_camera -> {
-                // Handle the camera action
+                manager.beginTransaction().replace(R.id.fragment, first).commit()
             }
             R.id.nav_gallery -> {
-
+                manager.beginTransaction().replace(R.id.fragment, second).commit()
             }
             R.id.nav_slideshow -> {
 
